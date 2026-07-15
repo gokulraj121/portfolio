@@ -1,0 +1,104 @@
+.loaderContainer {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: #000000; /* Pure black background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: var(--font-sans);
+}
+
+/* Container that slowly zooms in simulating a camera pushing forward */
+.cameraTracker {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.animationWrapper {
+  position: relative;
+  width: 250px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  position: absolute;
+  width: 8px; /* crisp and small */
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff; /* crisp white light instead of blur */
+  z-index: 2;
+  will-change: transform, background-color;
+}
+
+.line {
+  position: absolute;
+  width: 250px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+  transform-origin: center;
+  z-index: 1;
+  will-change: transform;
+}
+
+.textWrapper {
+  position: absolute;
+  inset: 0; /* Cover the whole container */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transform: translateY(40px); /* Moves text slightly below the light/line */
+}
+
+.text {
+  position: absolute; /* Ensures they all sit exactly on top of each other in the center */
+  font-size: 1.1rem; /* Slightly larger for readability */
+  font-weight: 300;
+  letter-spacing: 0.4em; /* Ultra wide tracking */
+  color: #ffffff;
+  text-transform: uppercase;
+  will-change: transform, opacity, filter, letter-spacing;
+  text-align: center;
+}
+
+.progressCounter {
+  position: absolute;
+  bottom: 80px;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--muted);
+  letter-spacing: 3px;
+  will-change: opacity;
+}
+
+
+/* Cinematic Letterbox (Black bars top and bottom) */
+.letterboxTop, .letterboxBottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 15vh;
+  background-color: #000;
+  z-index: 10;
+  will-change: transform;
+}
+
+.letterboxTop {
+  top: 0;
+}
+
+.letterboxBottom {
+  bottom: 0;
+}

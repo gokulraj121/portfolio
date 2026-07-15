@@ -1,0 +1,185 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #ffffff;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 5vw;
+}
+
+.splitContainer {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  gap: 4rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* ─── LEFT COLUMN: TYPOGRAPHY ────────────────────────────────────────────── */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.headline {
+  font-family: var(--font-nevera);
+  font-size: clamp(4rem, 7vw, 8rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.wordMask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.1em;
+  padding-right: 0.2em;
+}
+
+.word {
+  display: block;
+  transform: translateY(110%);
+}
+
+.subHeadline {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: #4b5563;
+  max-width: 400px;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  opacity: 0;
+}
+
+/* ─── RIGHT COLUMN: THE FORM ─────────────────────────────────────────────── */
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.inputGroup {
+  position: relative;
+  width: 100%;
+  opacity: 0; /* for GSAP reveal */
+}
+
+.floatingLabel {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  font-size: 1.1rem;
+  color: #6b7280;
+  pointer-events: none;
+  transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lineInput {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #d1d5db;
+  padding: 1rem 0;
+  font-size: 1.2rem;
+  color: #000000;
+  font-family: var(--font-sans);
+  outline: none;
+  transition: border-color 0.4s ease;
+}
+
+/* Floating Label Magic */
+.lineInput:focus + .floatingLabel,
+.lineInput:not(:placeholder-shown) + .floatingLabel {
+  top: -1rem;
+  font-size: 0.7rem;
+  color: #000000;
+  font-weight: 700;
+}
+
+.lineInput:focus {
+  border-bottom: 2px solid #000000;
+}
+
+/* Textarea specific */
+textarea.lineInput {
+  resize: none;
+  min-height: 100px;
+  padding-top: 2rem;
+}
+
+/* Minimal Submit Button */
+.submitBtn {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 1.2rem 3rem;
+  border-radius: 40px;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: transform 0.3s ease, background 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.submitBtn:hover {
+  transform: scale(1.05);
+}
+
+.submitBtn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.submitBtn:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .splitContainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 6rem 0;
+  }
+  
+  .headline {
+    font-size: clamp(3.5rem, 12vw, 5rem);
+  }
+
+  .rightCol {
+    padding-left: 0;
+  }
+}

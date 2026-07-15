@@ -1,0 +1,236 @@
+.logo {
+  position: absolute;
+  top: 50px;
+  left: 60px;
+  font-size: 3.5rem;
+  font-weight: normal;
+  letter-spacing: 2px;
+  color: var(--logo-color);
+  z-index: 100;
+  font-family: var(--font-nevera), var(--font-sans);
+  text-transform: uppercase;
+}
+
+.headerHint {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-nevera), var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--logo-color);
+  pointer-events: none;
+  z-index: 100;
+  animation: pulseHint 2s infinite alternate ease-in-out;
+}
+
+@keyframes pulseHint {
+  from { opacity: 0.2; }
+  to { opacity: 0.8; }
+}
+
+.nav {
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px;
+  z-index: 100;
+}
+
+.navLink {
+  font-family: var(--font-nevera), var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--logo-color);
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.navLink:hover {
+  opacity: 0.5;
+}
+
+/* WIDGETS */
+.headerButtonWrapper {
+  position: absolute;
+  top: 40px;
+  right: 220px;
+  z-index: 100;
+}
+
+.topRightWidget {
+  position: absolute;
+  top: 50px;
+  right: 60px;
+  text-align: right;
+  z-index: 100;
+  color: var(--widget-color);
+}
+
+.timeText {
+  font-family: var(--font-nevera), var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.locationText {
+  font-size: 0.75rem;
+  font-family: var(--font-nevera), var(--font-sans);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+/* Magnetic Menu Button */
+.magneticMenuBtn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid var(--btn-border);
+  background: transparent;
+  color: var(--logo-color);
+  font-family: var(--font-nevera), var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.magneticMenuBtn:hover {
+  background: var(--logo-color);
+  color: var(--btn-bg);
+}
+
+.mobileOnlyButton {
+  display: none;
+}
+
+/* Tablet Responsiveness */
+@media (max-width: 1024px) {
+  .logo {
+    top: 30px;
+    left: 40px;
+    font-size: 2.5rem;
+  }
+  .nav {
+    top: 40px;
+    gap: 25px;
+  }
+  .headerButtonWrapper {
+    right: 180px;
+  }
+  .topRightWidget {
+    right: 40px;
+  }
+}
+
+/* Mobile Responsiveness (Portrait Only) */
+@media (max-width: 768px) and (orientation: portrait) {
+  .logo {
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+  }
+
+  .mobileMenuBtn {
+    display: flex;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    left: auto;
+    background: var(--background, #ffffff);
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    gap: 20px;
+    z-index: 100;
+  }
+
+  .nav.navOpen {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .navLink {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: var(--foreground, #000);
+  }
+
+  .mobileOnlyButton {
+    display: block;
+    margin-top: 10px;
+  }
+
+  /* Hide non-essential widgets on small screens to save space */
+  .headerButtonWrapper,
+  .topRightWidget {
+    display: none;
+  }
+}
+
+/* Small Mobile Responsiveness (Portrait Only) */
+@media (max-width: 480px) and (orientation: portrait) {
+  .logo {
+    font-size: 1.5rem;
+    top: 15px;
+    left: 15px;
+  }
+  .mobileMenuBtn {
+    top: 25px;
+    right: 15px;
+  }
+  .nav {
+    top: 60px;
+    right: 15px;
+    padding: 15px 25px;
+    gap: 15px;
+  }
+  .navLink {
+    font-size: 0.9rem;
+    letter-spacing: 0px;
+  }
+}
+
+/* Mobile Landscape Responsiveness */
+@media (max-height: 500px) and (orientation: landscape) {
+  .logo {
+    top: 15px;
+    font-size: 1.5rem;
+  }
+  .mobileMenuBtn {
+    top: 20px;
+  }
+  .nav {
+    top: 50px;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 15px 20px;
+  }
+  .navLink {
+    font-size: 0.9rem;
+  }
+}

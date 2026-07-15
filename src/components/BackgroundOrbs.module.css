@@ -1,0 +1,54 @@
+.container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0; /* Behind the particle field and swarm */
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+  mix-blend-mode: multiply;
+}
+
+/* Subtle, elegant colors that match the light aesthetic */
+.orb1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(230, 240, 255, 1) 0%, rgba(255, 255, 255, 0) 70%);
+  top: -10%;
+  left: -5%;
+}
+
+.orb2 {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(255, 235, 245, 1) 0%, rgba(255, 255, 255, 0) 70%);
+  bottom: -20%;
+  right: -10%;
+}
+
+.orb3 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(240, 255, 245, 1) 0%, rgba(255, 255, 255, 0) 70%);
+  top: 40%;
+  left: 60%;
+}
+
+/* Very subtle noise overlay for texture */
+.noise {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
