@@ -84,16 +84,16 @@ export default function Contact() {
             flexWrap: "wrap",
             marginTop: "1rem" 
           }}>
-            <LiquidGlassButton href="mailto:hello@vgr.design">
+            <LiquidGlassButton href="mailto:rajgokul204@gmail.com">
               Gmail
             </LiquidGlassButton>
-            <LiquidGlassButton href="https://discord.com" target="_blank" rel="noopener noreferrer">
+            <LiquidGlassButton href="https://discord.gg/YRuMt9v5cr" target="_blank" rel="noopener noreferrer">
               Discord
             </LiquidGlassButton>
-            <LiquidGlassButton href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <LiquidGlassButton href="https://github.com/gokulraj121" target="_blank" rel="noopener noreferrer">
               GitHub
             </LiquidGlassButton>
-            <LiquidGlassButton href="https://reddit.com" target="_blank" rel="noopener noreferrer">
+            <LiquidGlassButton href="https://www.reddit.com/r/Buildora/" target="_blank" rel="noopener noreferrer">
               Reddit
             </LiquidGlassButton>
           </div>
@@ -102,7 +102,7 @@ export default function Contact() {
         {/* ─── RIGHT: VOICE AGENT ─── */}
         <div className={styles.rightCol}>
           <div className="agent-reveal">
-            <VoiceAgent onClick={() => window.location.href = "mailto:hello@vgr.design"} />
+            <VoiceAgent onClick={() => window.location.href = "mailto:rajgokul204@gmail.com"} />
           </div>
         </div>
 
